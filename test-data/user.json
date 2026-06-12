@@ -1,0 +1,28 @@
+{
+    "users":[
+        {
+            "firstname":"Krish",
+            "lastname":"Sharma",
+            "Address":"123 Main St",
+            "city":"New York",
+            "state":"NY",
+            "zipCode":"10001",
+            "phoneNumber":"1234567890",
+            "ssn":"123-45-6789",
+            "password":"password123",
+            "confirm":"password123"
+        },
+        {
+            "firstname":"Rahul",
+            "lastname":"Sharma",
+            "Address":"123 Main St",
+            "city":"New York",
+            "state":"NY",
+            "zipCode":"10002",
+            "phoneNumber":"1234569890",
+            "ssn":"123-45-6799",
+            "password":"password123",
+            "confirm":"password321"
+        }
+    ]
+}

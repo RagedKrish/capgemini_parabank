@@ -1,0 +1,17 @@
+16
+Checking account 12345 against new account 30882
+Checking account 12456 against new account 30882
+Checking account 12567 against new account 30882
+Checking account 12678 against new account 30882
+Checking account 12789 against new account 30882
+Checking account 12900 against new account 30882
+Checking account 13011 against new account 30882
+Checking account 13122 against new account 30882
+Checking account 13233 against new account 30882
+Checking account 13344 against new account 30882
+Checking account 19560 against new account 30882
+Checking account 30549 against new account 30882
+Checking account 30660 against new account 30882
+Checking account 30771 against new account 30882
+Checking account 30882 against new account 30882
+New account 30882 found in overview
