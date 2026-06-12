@@ -23,9 +23,11 @@ pipeline {
 
         stage('Run Playwright Tests') {
             steps {
+                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                 bat 'npx playwright test'
-            }
+            }   
         }
+}
 
         stage('Generate Allure Report') {
             steps {
@@ -39,12 +41,12 @@ pipeline {
         always {
 
             publishHTML([
-                allowMissing: true,
+                allowMissing: false,
                 alwaysLinkToLastBuild: true,
                 keepAll: true,
                 reportDir: 'playwright-report',
                 reportFiles: 'index.html',
-                reportName: 'Playwright HTML Report'
+                reportName: 'Playwright Report'
             ])
 
             archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
