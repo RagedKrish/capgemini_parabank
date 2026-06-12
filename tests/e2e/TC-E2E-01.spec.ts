@@ -5,6 +5,7 @@ import { env } from "../../config/env";
 
 const customer_id=12212;
 test("Validate Account Type in API Response", async({request,Accountservicepage,Openaccountpage,Homepage,page})=>{
+        console.log('Validating Account Type in API Response')
         await page.goto(env.baseURL)
         await Homepage.login_user('john','demo');
         await Accountservicepage.openaccount.click();

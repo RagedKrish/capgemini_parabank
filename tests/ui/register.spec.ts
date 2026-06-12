@@ -8,6 +8,7 @@ const data=JSON.parse(fs.readFileSync(path.join(__dirname,'../../test-data/user.
 
 test.describe('register user',()=>{
     test('register new user',async({page,Homepage,Registerpage})=>{
+    console.log('Checking register new user')
     await page.goto(env.baseURL);
     await Homepage.register.click();
     await Registerpage.firstname.waitFor({state:'visible'});
@@ -17,6 +18,7 @@ test.describe('register user',()=>{
     });
 
     test('register with empty fields',async({page,Homepage,Registerpage})=>{
+        console.log('Checking register with empty fields')
         await page.goto(env.baseURL);
         await Homepage.register.click();
         await Registerpage.register_btn.click();
@@ -33,6 +35,7 @@ test.describe('register user',()=>{
     });
 
     test('register with existing username',async({page,Homepage,Registerpage,Accountservicepage})=>{
+        console.log('Checking register with existing username')
         await page.goto(env.baseURL);
 
         await Homepage.register.click();
@@ -46,6 +49,7 @@ test.describe('register user',()=>{
     });
 
     test('register with mismatched passwords',async({page,Homepage,Registerpage})=>{
+        console.log('Checking register with mismatched passwords')
         await page.goto(env.baseURL);
         await Homepage.register.click();
         await Registerpage.register_user(data.users[1],`user${Date.now()}`);

@@ -4,6 +4,7 @@ import {expect} from "@playwright/test";
 test.describe('fund transfer',()=>{
 
     test('Transfer Funds Between Valid Accounts',async({Accountservicepage,Openaccountpage,Fundtransferpage,Homepage,page})=>{
+        console.log('Transfering Funds Between Valid Accounts')
         await page.goto(env.baseURL);
         await Homepage.login_user('john','demo');
         let accountbalance=100;
@@ -24,6 +25,7 @@ test.describe('fund transfer',()=>{
     });
 
     test.fail('Transfer Funds with Insufficient Balance',async({Accountservicepage,Openaccountpage,Fundtransferpage,Homepage,page})=>{
+        console.log('Transfering Funds with Insufficient Balance')
         await page.goto(env.baseURL);
         await Homepage.login_user('john','demo');
         let accountbalance=100;
@@ -43,6 +45,7 @@ test.describe('fund transfer',()=>{
         await expect(Fundtransferpage.transfersuccess_msg).not.toHaveText('Transfer Complete!');
     });
     test.fail('Transfer Zero Amount',async({Accountservicepage,Openaccountpage,Fundtransferpage,Homepage,page})=>{
+        console.log('Transfering Zero Amount')
         await page.goto(env.baseURL);
         await Homepage.login_user('john','demo');
         await Accountservicepage.openaccount.click();
@@ -62,6 +65,7 @@ test.describe('fund transfer',()=>{
     });
 
     test.fail('Transfer Negative Amount',async({Accountservicepage,Openaccountpage,Fundtransferpage,Homepage,page})=>{
+        console.log('Transfering Negative Amount')
         await page.goto(env.baseURL);
         await Homepage.login_user('john','demo');
         await Accountservicepage.openaccount.click();
@@ -80,6 +84,7 @@ test.describe('fund transfer',()=>{
         await expect(Fundtransferpage.transfersuccess_msg).not.toHaveText('Transfer Complete!');
     });
     test.fail('Transfer to Same Account',async({Accountservicepage,Openaccountpage,Fundtransferpage,Homepage,page})=>{
+        console.log('Transfering to Same Account')
         await page.goto(env.baseURL);
         await Homepage.login_user('john','demo');
         let accountbalance=100;

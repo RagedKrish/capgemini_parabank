@@ -4,6 +4,7 @@ import { expect } from "@playwright/test";
 import { env } from "../../config/env";
 
 test("Transfer via UI and Validate Balances via API", async({request,Accountservicepage,Openaccountpage,Homepage,page,Fundtransferpage})=>{
+    console.log('Transfering via UI and Validate Balances via API')
     await page.goto(env.baseURL);
     await Homepage.login_user('john','demo');
     await Accountservicepage.openaccount.click()

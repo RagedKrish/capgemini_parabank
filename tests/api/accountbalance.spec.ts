@@ -8,6 +8,7 @@ const account_id = 13344;
 test.describe('Account balance using api', async () => {
 
     test('Validate Source Balance Deducted', async ({ request }) => {
+        console.log('Validating Source Balance Deducted')
         let type = 1
         let createresp1 = await request.post(`${env.baseURL_Api}/createAccount?customerId=${customer_id}&newAccountType=${type}&fromAccountId=${account_id}`, {
             headers: {
@@ -50,6 +51,7 @@ test.describe('Account balance using api', async () => {
     });
 
     test('Validate Destination Balance Credited', async ({ request }) => {
+        console.log('Validating Destination Balance Credited')
         let type = 1
         let createresp1 = await request.post(`${env.baseURL_Api}/createAccount?customerId=${customer_id}&newAccountType=${type}&fromAccountId=${account_id}`, {
             headers: {
@@ -92,6 +94,7 @@ test.describe('Account balance using api', async () => {
     });
 
     test('Validate Total Balance Conservation',async({request})=>{
+        console.log('ValidateingTotal Balance Conservation')
         let type = 1
         let createresp1 = await request.post(`${env.baseURL_Api}/createAccount?customerId=${customer_id}&newAccountType=${type}&fromAccountId=${account_id}`, {
             headers: {

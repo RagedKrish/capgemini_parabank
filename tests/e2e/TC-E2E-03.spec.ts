@@ -8,6 +8,7 @@ import path from "path"
 let data=JSON.parse(fs.readFileSync(path.join(__dirname,"../../test-data/user.json")));
 
 test("Full User Lifecycle E2E", async({request,Accountservicepage,Openaccountpage,Homepage,page,Fundtransferpage,Registerpage})=>{
+    console.log('Doing Full User Lifecycle E2E')
     await page.goto(env.baseURL);
     await Homepage.register.click();
     let username=`user${Date.now()}`;

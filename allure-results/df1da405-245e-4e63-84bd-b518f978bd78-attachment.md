@@ -1,0 +1,51 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: e2e\TC-E2E-03.spec.ts >> Full User Lifecycle E2E
+- Location: tests\e2e\TC-E2E-03.spec.ts:10:5
+
+# Error details
+
+```
+Error: locator.selectOption: Test ended.
+Call log:
+  - waiting for locator('[id="type"]')
+
+```
+
+# Test source
+
+```ts
+  1  | import { Page, Locator, Expect } from "@playwright/test";
+  2  | 
+  3  | class openaccountpage{
+  4  |     page:Page;
+  5  |     accountType:Locator;
+  6  |     fromAccount:Locator;
+  7  |     openNewAccount:Locator;
+  8  |     accountopened_msg:Locator;
+  9  |     newaccountnumber:Locator;
+  10 |     constructor(page:Page){
+  11 |         this.page=page;
+  12 |         this.accountType=page.locator('[id="type"]');
+  13 |         this.fromAccount=page.locator('[id="fromAccountId"]');
+  14 |         this.openNewAccount=page.getByRole('button',{name:'Open New Account'});
+  15 |         this.accountopened_msg=page.locator('//div[@id="openAccountResult"]/h1');
+  16 |         this.newaccountnumber=page.locator('[id="newAccountId"]');
+  17 |     }
+  18 |     async openaccount(type:string,expect:Expect){
+> 19 |         await this.accountType.selectOption(type);
+     |                                ^ Error: locator.selectOption: Test ended.
+  20 |         await expect(this.fromAccount).not.toBeEmpty();
+  21 |         await this.openNewAccount.click();
+  22 |     }
+  23 | }
+  24 | 
+  25 | export default openaccountpage;
+  26 | 
+```

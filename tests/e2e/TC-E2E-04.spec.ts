@@ -5,6 +5,7 @@ import { env } from "../../config/env";
 import accountoverviewpage from "../../pages/accountoverviewpage";
 
 test("Login + Create Account + Verify in Overview and API", async ({ request, Accountservicepage, Openaccountpage, Homepage, page, Accountoverviewpage }) => {
+    console.log('Doing Login + Create Account + Verify in Overview and API')
     await page.goto(env.baseURL);
     await Homepage.login_user('john', 'demo');
     await Accountservicepage.openaccount.click()

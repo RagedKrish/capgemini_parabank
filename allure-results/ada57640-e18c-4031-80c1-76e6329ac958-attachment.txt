@@ -1,0 +1,22 @@
+[
+  { id: 12345, customerId: 12212, type: 'CHECKING', balance: -3000 },
+  { id: 12456, customerId: 12212, type: 'CHECKING', balance: 10.45 },
+  { id: 12567, customerId: 12212, type: 'CHECKING', balance: 100 },
+  { id: 12678, customerId: 12212, type: 'SAVINGS', balance: -100 },
+  { id: 12789, customerId: 12212, type: 'CHECKING', balance: 100 },
+  { id: 12900, customerId: 12212, type: 'CHECKING', balance: 0 },
+  { id: 13011, customerId: 12212, type: 'CHECKING', balance: 100 },
+  { id: 13122, customerId: 12212, type: 'CHECKING', balance: 1100 },
+  { id: 13233, customerId: 12212, type: 'CHECKING', balance: 100 },
+  { id: 13344, customerId: 12212, type: 'SAVINGS', balance: 91.1 },
+  { id: 14121, customerId: 12212, type: 'SAVINGS', balance: 100 },
+  { id: 14898, customerId: 12212, type: 'SAVINGS', balance: 100 },
+  { id: 15009, customerId: 12212, type: 'SAVINGS', balance: 0 },
+  { id: 15120, customerId: 12212, type: 'SAVINGS', balance: 200 },
+  { id: 15231, customerId: 12212, type: 'SAVINGS', balance: 0 },
+  { id: 15342, customerId: 12212, type: 'SAVINGS', balance: 200 },
+  { id: 15564, customerId: 12212, type: 'SAVINGS', balance: 100 },
+  { id: 15675, customerId: 12212, type: 'SAVINGS', balance: 100 },
+  { id: 15786, customerId: 12212, type: 'SAVINGS', balance: 100 },
+  { id: 54321, customerId: 12212, type: 'CHECKING', balance: 1351.12 }
+]

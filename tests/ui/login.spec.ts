@@ -8,6 +8,7 @@ const data=JSON.parse(fs.readFileSync(path.join(__dirname,'../../test-data/user.
 
 test.describe('login tests',()=>{
     test("login with valid credentials",async({page,Homepage,Registerpage,Accountservicepage})=>{
+        console.log('Checking login with valid credentials')
         await page.goto(env.baseURL);
         await Homepage.register.click();
         await Registerpage.firstname.waitFor({state:'visible'});
@@ -19,6 +20,7 @@ test.describe('login tests',()=>{
     });
 
     test("login with invalid password",async({page,Homepage,Registerpage,Accountservicepage})=>{
+        console.log('Checking login with invalid password')
         await page.goto(env.baseURL);
         await Homepage.register.click();
         await Registerpage.firstname.waitFor({state:'visible'});
@@ -30,6 +32,7 @@ test.describe('login tests',()=>{
     });
 
     test("login with invalid username",async({page,Homepage,Registerpage,Accountservicepage})=>{
+        console.log('Checking login with invalid username')
         await page.goto(env.baseURL);
         await Homepage.register.click();
         await Registerpage.firstname.waitFor({state:'visible'});
@@ -41,6 +44,7 @@ test.describe('login tests',()=>{
     });
 
     test("login with blank fields",async({page,Homepage})=>{
+        console.log('Checking login with blank fields')
         await page.goto(env.baseURL);
         await Homepage.login_btn.click();
         await expect(Homepage.errormsg).toHaveText('Please enter a username and password.');

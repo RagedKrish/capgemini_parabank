@@ -10,7 +10,7 @@ export default defineConfig({
 
   retries: 1,
 
-  workers: 2,
+  workers: 1,
 
   timeout: 60000,
 

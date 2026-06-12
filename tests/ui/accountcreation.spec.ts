@@ -7,6 +7,7 @@ const data = JSON.parse(fs.readFileSync(path.join(__dirname, '../../test-data/us
 
 test.describe('account creation tests', () => {
     test("Create New Savings Account", async({Accountservicepage,Openaccountpage,Homepage,page})=>{
+        console.log('Creating New Savings Account');
         await page.goto(env.baseURL);
         await Homepage.login_user('john','demo');
         await Accountservicepage.openaccount.click();
@@ -16,6 +17,7 @@ test.describe('account creation tests', () => {
         await expect(Openaccountpage.newaccountnumber).toBeVisible();
     });
     test("Create New Checking Account", async({Accountservicepage,Openaccountpage,Homepage,page})=>{
+        console.log('Creating New Checking Account');
         await page.goto(env.baseURL);
         await Homepage.login_user('john','demo');
         await Accountservicepage.openaccount.click();
@@ -26,6 +28,7 @@ test.describe('account creation tests', () => {
         await expect(Openaccountpage.newaccountnumber).toBeVisible();
     });
     test("New Account Appears in Overview", async({Accountservicepage,Openaccountpage,Homepage,Accountoverviewpage,page})=>{
+        console.log('Checking New Account Appears in Overview');
         await page.goto(env.baseURL);
         await Homepage.login_user('john','demo');
         await Accountservicepage.openaccount.click();
@@ -40,6 +43,7 @@ test.describe('account creation tests', () => {
 
     });
     test("Verify New Account Activity Page Opens Correctly", async({Accountservicepage,Openaccountpage,Homepage,page,Accountactivitypage})=>{
+        console.log('Verifying New Account Activity Page Opens Correctly');
         await page.goto(env.baseURL);
         await Homepage.login_user('john','demo');
         await Accountservicepage.openaccount.click();

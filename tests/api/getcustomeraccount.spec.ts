@@ -8,6 +8,7 @@ const account_id=13344;
 
 test.describe("testing customer and account apis", () => {
     test("GET Accounts Returns HTTP 200", async ({ request }) => {
+        console.log('GET Accounts Returns HTTP 200')
         let resp1 = await request.get(`${env.baseURL_Api}/customers/${customer_id}/accounts`, {
             headers: {
                 Accept: 'application/json'
@@ -20,6 +21,7 @@ test.describe("testing customer and account apis", () => {
 
 
     test("Validate Account Type in API Response",async({request})=>{
+        console.log('Validating Account Type in API Response')
         let type=1
         let resp1=await request.post(`${env.baseURL_Api}/createAccount?customerId=${customer_id}&newAccountType=${type}&fromAccountId=${account_id}`,{
             headers:{
@@ -46,6 +48,7 @@ test.describe("testing customer and account apis", () => {
     });
 
     test('Validate All Account Fields in API',async({request})=>{
+        console.log('Validating All Account Fields in API')
         let resp1 = await request.get(`${env.baseURL_Api}/customers/${customer_id}/accounts`, {
             headers: {
                 Accept: 'application/json'
@@ -64,6 +67,7 @@ test.describe("testing customer and account apis", () => {
     });
 
     test('GET Accounts — Invalid Customer ID',async({request})=>{
+        console.log('GET Accounts — Invalid Customer ID')
         let resp1 = await request.get(`${env.baseURL_Api}/customers/${invalid_customer_id}/accounts`, {
             headers: {
                 Accept: 'application/json'
