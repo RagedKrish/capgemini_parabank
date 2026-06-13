@@ -1,0 +1,3 @@
+Test: Create New Checking Account
+Login successful.
+✅ Checking account created successfully.

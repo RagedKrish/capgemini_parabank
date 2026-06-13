@@ -1,0 +1,13 @@
+Test: Validating Source Balance Deducted
+Creating FROM account for customer 12212
+FROM Account Created: ID=20004, Status=200
+Create Account 1 Response: {"id":20004,"customerId":12212,"type":"SAVINGS","balance":0}
+Creating TO account for customer 12212
+TO Account Created: ID=20115, Status=200
+Create Account 2 Response: {"id":20115,"customerId":12212,"type":"SAVINGS","balance":0}
+PRE-TRANSFER | FROM Account 20004 Balance: $100
+FROM Account Pre-Transfer: {"id":20004,"customerId":12212,"type":"SAVINGS","balance":100}
+Initiating transfer of $100 from 20004 -> 20115
+Transfer Response Status: 200
+POST-TRANSFER | FROM Account 20004 Balance: $0
+Expected: $0 | Actual: $0

@@ -1,0 +1,5 @@
+Test: Transfer Funds Between Valid Accounts
+FROM account created: 30216
+TO account created: 30327
+Submitting transfer: $100 from 30216 -> 30327
+Transfer completed successfully.

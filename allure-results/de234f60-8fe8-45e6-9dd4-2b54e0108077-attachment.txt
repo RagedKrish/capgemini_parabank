@@ -1,0 +1,4 @@
+Test: Register with existing username
+First registration with username: "user1781335593836"
+Second registration attempt with same username: "user1781335593836"
+Duplicate username correctly rejected.

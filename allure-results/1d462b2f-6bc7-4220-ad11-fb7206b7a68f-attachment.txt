@@ -1,0 +1,5 @@
+Test: Transfer Zero Amount (expected to fail due to bug)
+FROM account: 24333
+TO account: 24444
+Attempting transfer of $0
+Transfer message: "[object Promise]" (should NOT be "Transfer Complete!")

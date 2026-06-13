@@ -1,0 +1,3 @@
+Test: Register new user
+Registering user
+Registration successful"

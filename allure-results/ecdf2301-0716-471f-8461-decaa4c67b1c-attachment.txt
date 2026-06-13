@@ -1,0 +1,35 @@
+Test: Validating schema of all fields for customer 12212's accounts
+ Response Status: 200
+ Total accounts to validate: 16
+ Validating account:{"id":13344,"customerId":12212,"type":"CHECKING","balance":3228.93}
+Account ID=13344 passed all field type validations.
+ Validating account:{"id":13899,"customerId":12212,"type":"SAVINGS","balance":441}
+Account ID=13899 passed all field type validations.
+ Validating account:{"id":15786,"customerId":12212,"type":"SAVINGS","balance":0}
+Account ID=15786 passed all field type validations.
+ Validating account:{"id":20004,"customerId":12212,"type":"SAVINGS","balance":0}
+Account ID=20004 passed all field type validations.
+ Validating account:{"id":20115,"customerId":12212,"type":"SAVINGS","balance":200}
+Account ID=20115 passed all field type validations.
+ Validating account:{"id":20226,"customerId":12212,"type":"SAVINGS","balance":0}
+Account ID=20226 passed all field type validations.
+ Validating account:{"id":20337,"customerId":12212,"type":"SAVINGS","balance":200}
+Account ID=20337 passed all field type validations.
+ Validating account:{"id":20448,"customerId":12212,"type":"SAVINGS","balance":0}
+Account ID=20448 passed all field type validations.
+ Validating account:{"id":20559,"customerId":12212,"type":"SAVINGS","balance":200}
+Account ID=20559 passed all field type validations.
+ Validating account:{"id":20670,"customerId":12212,"type":"CHECKING","balance":100}
+Account ID=20670 passed all field type validations.
+ Validating account:{"id":20892,"customerId":12212,"type":"CHECKING","balance":100}
+Account ID=20892 passed all field type validations.
+ Validating account:{"id":21225,"customerId":12212,"type":"LOAN","balance":1000}
+Account ID=21225 passed all field type validations.
+ Validating account:{"id":21891,"customerId":12212,"type":"SAVINGS","balance":100}
+Account ID=21891 passed all field type validations.
+ Validating account:{"id":22224,"customerId":12212,"type":"SAVINGS","balance":100}
+Account ID=22224 passed all field type validations.
+ Validating account:{"id":23445,"customerId":12212,"type":"SAVINGS","balance":100}
+Account ID=23445 passed all field type validations.
+ Validating account:{"id":25998,"customerId":12212,"type":"SAVINGS","balance":100}
+Account ID=25998 passed all field type validations.

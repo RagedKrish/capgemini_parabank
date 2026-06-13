@@ -1,0 +1,3 @@
+Test: Login with invalid password
+Attempting login with wrong password for "user1781334965122". Password used: "password123123"
+Error message shown

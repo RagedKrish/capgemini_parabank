@@ -1,0 +1,16 @@
+Test: Login + Create Account + Verify in Overview and API
+Login successful.
+New Account created via UI: 14787
+Navigated to Accounts Overview. Checking for account 14787
+2
+Checking account 13344 against new account 14787
+Checking account 14787 against new account 14787
+Account 14787 in UI overview: Found
+[API] Fetching account details for account ID 14787
+[API] GET /accounts/14787 -> Status: 200
+Customer ID from API: 12212
+[API] Fetching all accounts for customer 12212
+[API] GET /customers/12212/accounts -> Status: 200
+[API] All Customer Accounts: [{"id":13344,"customerId":12212,"type":"CHECKING","balance":4922.93},{"id":14787,"customerId":12212,"type":"SAVINGS","balance":100}]
+Total accounts returned for customer: 2
+Account 14787 found in API customer accounts list.

@@ -1,0 +1,5 @@
+Test: Transfer Funds with Insufficient Balance (expected to fail due to bug)
+FROM account: 30438 | Balance: $100
+TO account: 30549
+Attempting transfer of $101
+Transfer message: "Transfer Complete!" (should NOT be "Transfer Complete!")

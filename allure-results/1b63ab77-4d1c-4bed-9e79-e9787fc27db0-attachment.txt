@@ -1,0 +1,4 @@
+Test: Login with valid credentials
+Registering new user: "user1781334955516"
+Attempting login with valid credentials for "user1781334955516"
+Redirected to overview — login successful.

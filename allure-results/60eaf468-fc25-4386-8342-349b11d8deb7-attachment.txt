@@ -1,0 +1,24 @@
+Validating Account Type in API Response
+Test: Creating new SAVINGS account for customer 12212 using fromAccountId=13344
+ Create Account Response Status: 200
+ Created Account: {"id":25998,"customerId":12212,"type":"SAVINGS","balance":0}
+ New Account ID: 25998
+ GET Accounts Response Status: 200
+ All Accounts: [{"id":13344,"customerId":12212,"type":"CHECKING","balance":3228.93},{"id":13899,"customerId":12212,"type":"SAVINGS","balance":441},{"id":15786,"customerId":12212,"type":"SAVINGS","balance":0},{"id":20004,"customerId":12212,"type":"SAVINGS","balance":0},{"id":20115,"customerId":12212,"type":"SAVINGS","balance":200},{"id":20226,"customerId":12212,"type":"SAVINGS","balance":0},{"id":20337,"customerId":12212,"type":"SAVINGS","balance":200},{"id":20448,"customerId":12212,"type":"SAVINGS","balance":0},{"id":20559,"customerId":12212,"type":"SAVINGS","balance":200},{"id":20670,"customerId":12212,"type":"CHECKING","balance":100},{"id":20892,"customerId":12212,"type":"CHECKING","balance":100},{"id":21225,"customerId":12212,"type":"LOAN","balance":1000},{"id":21891,"customerId":12212,"type":"SAVINGS","balance":100},{"id":22224,"customerId":12212,"type":"SAVINGS","balance":100},{"id":23445,"customerId":12212,"type":"SAVINGS","balance":100},{"id":25998,"customerId":12212,"type":"SAVINGS","balance":100}]
+ Matching account: ID=13344, Type=CHECKING, Balance=3228.93
+ Matching account: ID=13899, Type=SAVINGS, Balance=441
+ Matching account: ID=15786, Type=SAVINGS, Balance=0
+ Matching account: ID=20004, Type=SAVINGS, Balance=0
+ Matching account: ID=20115, Type=SAVINGS, Balance=200
+ Matching account: ID=20226, Type=SAVINGS, Balance=0
+ Matching account: ID=20337, Type=SAVINGS, Balance=200
+ Matching account: ID=20448, Type=SAVINGS, Balance=0
+ Matching account: ID=20559, Type=SAVINGS, Balance=200
+ Matching account: ID=20670, Type=CHECKING, Balance=100
+ Matching account: ID=20892, Type=CHECKING, Balance=100
+ Matching account: ID=21225, Type=LOAN, Balance=1000
+ Matching account: ID=21891, Type=SAVINGS, Balance=100
+ Matching account: ID=22224, Type=SAVINGS, Balance=100
+ Matching account: ID=23445, Type=SAVINGS, Balance=100
+ Matching account: ID=25998, Type=SAVINGS, Balance=100
+ Account id and type is as expected.

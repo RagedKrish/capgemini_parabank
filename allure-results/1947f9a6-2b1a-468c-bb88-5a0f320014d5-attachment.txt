@@ -1,0 +1,17 @@
+Test: Validate Account Type in API Response
+New Account ID from UI: 14232
+Calling API: GET /customers/12212/accounts
+API Response Status: 200
+API Response Body:[{"id":12345,"customerId":12212,"type":"CHECKING","balance":-2400},{"id":12456,"customerId":12212,"type":"CHECKING","balance":10.45},{"id":12567,"customerId":12212,"type":"CHECKING","balance":100},{"id":12678,"customerId":12212,"type":"SAVINGS","balance":-100},{"id":12789,"customerId":12212,"type":"CHECKING","balance":100},{"id":12900,"customerId":12212,"type":"CHECKING","balance":0},{"id":13011,"customerId":12212,"type":"CHECKING","balance":100},{"id":13122,"customerId":12212,"type":"CHECKING","balance":1100},{"id":13233,"customerId":12212,"type":"CHECKING","balance":100},{"id":13344,"customerId":12212,"type":"SAVINGS","balance":1231.1},{"id":14232,"customerId":12212,"type":"SAVINGS","balance":100},{"id":54321,"customerId":12212,"type":"CHECKING","balance":1351.12}]
+account ID=12345 | Type=CHECKING | Balance=-2400
+account ID=12456 | Type=CHECKING | Balance=10.45
+account ID=12567 | Type=CHECKING | Balance=100
+account ID=12678 | Type=SAVINGS | Balance=-100
+account ID=12789 | Type=CHECKING | Balance=100
+account ID=12900 | Type=CHECKING | Balance=0
+account ID=13011 | Type=CHECKING | Balance=100
+account ID=13122 | Type=CHECKING | Balance=1100
+account ID=13233 | Type=CHECKING | Balance=100
+account ID=13344 | Type=SAVINGS | Balance=1231.1
+account ID=14232 | Type=SAVINGS | Balance=100
+Accountid and Account type Matched

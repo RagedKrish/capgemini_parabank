@@ -1,0 +1,4 @@
+Test: Transfer to Same Account (expected to fail due to bug)
+FROM account = TO account = 34212 (same account transfer)
+Attempting $100 transfer to same account.
+Transfer message: "Transfer Complete!" (should NOT be "Transfer Complete!")

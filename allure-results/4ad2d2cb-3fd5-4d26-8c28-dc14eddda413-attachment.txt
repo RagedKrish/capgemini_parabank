@@ -1,0 +1,3 @@
+Test: Register with mismatched passwords
+Registering user with mismatched passwords.
+Password mismatch error correctly shown.

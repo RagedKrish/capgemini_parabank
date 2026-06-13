@@ -8,18 +8,21 @@ const data=JSON.parse(fs.readFileSync(path.join(__dirname,'../../test-data/user.
 
 test.describe('register user',()=>{
     test('register new user',async({page,Homepage,Registerpage})=>{
-    console.log('Checking register new user')
+    console.log(`Test: Register new user`);
     await page.goto(env.baseURL);
     await Homepage.register.click();
     await Registerpage.firstname.waitFor({state:'visible'});
+    console.log(`Registering user`);
     await Registerpage.register_user(data.users[0],`user${Date.now()}`);
     await expect(Registerpage.account_created).toHaveText('Your account was created successfully. You are now logged in.');
-    //await page.screenshot({path:'./screenshots/register.png'});
+    console.log(`Registration successful"`);
+    await page.screenshot({ path: `./screenshots/register_success.png` });
     });
 
     test('register with empty fields',async({page,Homepage,Registerpage})=>{
-        console.log('Checking register with empty fields')
+        console.log(`Test: Register with empty fields`);
         await page.goto(env.baseURL);
+        console.log(`Clicking Register without filling any fields.`);
         await Homepage.register.click();
         await Registerpage.register_btn.click();
         await expect(Registerpage.firstname_err).toHaveText('First name is required.');
@@ -32,27 +35,37 @@ test.describe('register user',()=>{
         await expect(Registerpage.username_err).toHaveText('Username is required.');
         await expect(Registerpage.password_err).toHaveText('Password is required.');
         await expect(Registerpage.confirm_err).toHaveText('Password confirmation is required.');
+        console.log(`All required field validation errors displayed correctly.`);
+        await page.screenshot({ path: `./screenshots/register_empty_fields.png` });
     });
 
     test('register with existing username',async({page,Homepage,Registerpage,Accountservicepage})=>{
-        console.log('Checking register with existing username')
+        console.log(`Test: Register with existing username`);
         await page.goto(env.baseURL);
 
         await Homepage.register.click();
         const username=`user${Date.now()}`;
+        console.log(`First registration with username: "${username}"`);
         await Registerpage.register_user(data.users[0],username);
+        await page.screenshot({ path: `./screenshots/register_first_attempt.png` });
         await Accountservicepage.logout.click();
         await Homepage.register.click();
         await Registerpage.firstname.waitFor({state:'visible'});
+        console.log(`Second registration attempt with same username: "${username}"`);
         await Registerpage.register_user(data.users[0],username);
         await expect(Registerpage.username_err).toHaveText('This username already exists.');
+        await page.screenshot({ path: `./screenshots/register_duplicate_username.png` });
+        console.log(`Duplicate username correctly rejected.`);
     });
 
     test('register with mismatched passwords',async({page,Homepage,Registerpage})=>{
-        console.log('Checking register with mismatched passwords')
+        console.log(`Test: Register with mismatched passwords`);
         await page.goto(env.baseURL);
         await Homepage.register.click();
+        console.log(`Registering user with mismatched passwords.`);
         await Registerpage.register_user(data.users[1],`user${Date.now()}`);
         await expect(Registerpage.confirm_err).toHaveText('Passwords did not match.');
+        console.log(`Password mismatch error correctly shown.`);
+        await page.screenshot({ path: `./screenshots/register_password_mismatch.png` });
     });
 });

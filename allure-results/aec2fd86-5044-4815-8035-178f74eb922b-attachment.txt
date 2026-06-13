@@ -1,0 +1,17 @@
+Test: Validate Account Type in API Response
+New Account ID from UI: 14232
+Calling API: GET /customers/12212/accounts
+API Response Status: 200
+API Response Body:[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+account ID=12345 | Type=CHECKING | Balance=-2400
+account ID=12456 | Type=CHECKING | Balance=10.45
+account ID=12567 | Type=CHECKING | Balance=100
+account ID=12678 | Type=SAVINGS | Balance=-100
+account ID=12789 | Type=CHECKING | Balance=100
+account ID=12900 | Type=CHECKING | Balance=0
+account ID=13011 | Type=CHECKING | Balance=100
+account ID=13122 | Type=CHECKING | Balance=1100
+account ID=13233 | Type=CHECKING | Balance=100
+account ID=13344 | Type=SAVINGS | Balance=1231.1
+account ID=14232 | Type=SAVINGS | Balance=100
+Accountid and Account type Matched

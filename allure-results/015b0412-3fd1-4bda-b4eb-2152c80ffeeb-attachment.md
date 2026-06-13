@@ -1,0 +1,169 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: ui\fundtransfer.spec.ts >> fund transfer >> Transfer Zero Amount
+- Location: tests\ui\fundtransfer.spec.ts:59:10
+
+# Error details
+
+```
+Error: expect(locator).not.toHaveText(expected) failed
+
+Locator:  locator('//div[@id="showResult"]/h1')
+Expected: not "Transfer Complete!"
+Received: "Transfer Complete!"
+Timeout:  10000ms
+
+Call log:
+  - Expect "not toHaveText" with timeout 10000ms
+  - waiting for locator('//div[@id="showResult"]/h1')
+    24 × locator resolved to <h1 class="title">Transfer Complete!</h1>
+       - unexpected value "Transfer Complete!"
+
+```
+
+```yaml
+- heading "Transfer Complete!" [level=1]
+```
+
+# Test source
+
+```ts
+  1   | import { env } from "../../config/env";
+  2   | import {test} from "../../fixture/pagefixture";
+  3   | import {expect} from "@playwright/test";
+  4   | test.describe('fund transfer',()=>{
+  5   | 
+  6   |     test('Transfer Funds Between Valid Accounts',async({Accountservicepage,Openaccountpage,Fundtransferpage,Homepage,page})=>{
+  7   |         console.log(`Test: Transfer Funds Between Valid Accounts`);
+  8   |         await page.goto(env.baseURL);
+  9   |         await Homepage.login_user('john','demo');
+  10  |         let accountbalance=100;
+  11  |         await Accountservicepage.openaccount.click();
+  12  |         await Openaccountpage.openaccount('1',expect);
+  13  |         await expect(Openaccountpage.newaccountnumber).toBeVisible();
+  14  |         const fromAccount = await Openaccountpage.newaccountnumber.textContent();
+  15  |         console.log(`FROM account created: ${fromAccount}`);
+  16  |         await Accountservicepage.openaccount.click();
+  17  |         await Openaccountpage.accountType.selectOption('1');
+  18  |         await expect(Openaccountpage.fromAccount).not.toBeEmpty();
+  19  |         await Openaccountpage.openNewAccount.click();
+  20  |         await expect(Openaccountpage.newaccountnumber).toBeVisible();
+  21  |         const toAccount = await Openaccountpage.newaccountnumber.textContent();
+  22  |         console.log(`TO account created: ${toAccount}`);
+  23  |         await Accountservicepage.transferfunds.click();
+  24  |         await expect(Fundtransferpage.fromAccount).toBeVisible();
+  25  |         console.log(`Submitting transfer: $${accountbalance} from ${fromAccount} -> ${toAccount}`);
+  26  |         await Fundtransferpage.transfer_fund(fromAccount,toAccount,accountbalance)
+  27  |         await expect(Fundtransferpage.transfersuccess_msg).toHaveText('Transfer Complete!');
+  28  |         console.log(`Transfer completed successfully.`);
+  29  |         await Fundtransferpage.transfersuccess_msg.waitFor({state:'visible'})
+  30  |         await page.screenshot({ path: `./screenshots/transfer_success.png` });
+  31  |     });
+  32  | 
+  33  |     test.fail('Transfer Funds with Insufficient Balance',async({Accountservicepage,Openaccountpage,Fundtransferpage,Homepage,page})=>{
+  34  |         console.log(`Test: Transfer Funds with Insufficient Balance (expected to fail due to bug)`);
+  35  |         await page.goto(env.baseURL);
+  36  |         await Homepage.login_user('john','demo');
+  37  |         let accountbalance=100;
+  38  |         await Accountservicepage.openaccount.click();
+  39  |         await Openaccountpage.openaccount('1',expect);
+  40  |         await expect(Openaccountpage.newaccountnumber).toBeVisible();
+  41  |         const fromAccount = await Openaccountpage.newaccountnumber.textContent();
+  42  |         console.log(`FROM account: ${fromAccount} | Balance: $${accountbalance}`);
+  43  |         await Accountservicepage.openaccount.click();
+  44  |         await Openaccountpage.accountType.selectOption('1');
+  45  |         await expect(Openaccountpage.fromAccount).not.toBeEmpty();
+  46  |         await Openaccountpage.openNewAccount.click();
+  47  |         await expect(Openaccountpage.newaccountnumber).toBeVisible();
+  48  |         const toAccount = await Openaccountpage.newaccountnumber.textContent();
+  49  |         console.log(`TO account: ${toAccount}`);
+  50  |         await Accountservicepage.transferfunds.click();
+  51  |         await expect(Fundtransferpage.fromAccount).toBeVisible();
+  52  |         console.log(`Attempting transfer of $${accountbalance+1}`);
+  53  |         await Fundtransferpage.transfer_fund(fromAccount,toAccount,accountbalance+1)
+  54  |         console.log(`Transfer message: "${await Fundtransferpage.transfersuccess_msg.textContent()}" (should NOT be "Transfer Complete!")`);
+  55  |         await Fundtransferpage.transfersuccess_msg.waitFor({state:'visible'})
+  56  |         await page.screenshot({ path: `./screenshots/transfer_insufficient.png` });
+  57  |         await expect(Fundtransferpage.transfersuccess_msg).not.toHaveText('Transfer Complete!');
+  58  |     });
+  59  |     test.fail('Transfer Zero Amount',async({Accountservicepage,Openaccountpage,Fundtransferpage,Homepage,page})=>{
+  60  |         console.log(`Test: Transfer Zero Amount (expected to fail due to bug)`);
+  61  |         await page.goto(env.baseURL);
+  62  |         await Homepage.login_user('john','demo');
+  63  |         await Accountservicepage.openaccount.click();
+  64  |         await Openaccountpage.openaccount('1',expect);
+  65  |         await expect(Openaccountpage.newaccountnumber).toBeVisible();
+  66  |         const fromAccount = await Openaccountpage.newaccountnumber.textContent();
+  67  |         console.log(`FROM account: ${fromAccount}`);
+  68  |         await Accountservicepage.openaccount.click();
+  69  |         await Openaccountpage.accountType.selectOption('1');
+  70  |         await expect(Openaccountpage.fromAccount).not.toBeEmpty();
+  71  |         await Openaccountpage.openNewAccount.click();
+  72  |         await expect(Openaccountpage.newaccountnumber).toBeVisible();
+  73  |         const toAccount = await Openaccountpage.newaccountnumber.textContent();
+  74  |         console.log(`TO account: ${toAccount}`);
+  75  |         await Accountservicepage.transferfunds.click();
+  76  |         await expect(Fundtransferpage.fromAccount).toBeVisible();
+  77  |         console.log(`Attempting transfer of $0`);
+  78  |         await Fundtransferpage.transfer_fund(fromAccount,toAccount,0)
+  79  |         console.log(`Transfer message: "${await Fundtransferpage.transfersuccess_msg.textContent()}" (should NOT be "Transfer Complete!")`);
+  80  |         await Fundtransferpage.transfersuccess_msg.waitFor({state:'visible'})
+  81  |         await page.screenshot({ path: `./screenshots/transfer_zero_amount.png` });
+> 82  |         await expect(Fundtransferpage.transfersuccess_msg).not.toHaveText('Transfer Complete!');
+      |                                                                ^ Error: expect(locator).not.toHaveText(expected) failed
+  83  |     });
+  84  | 
+  85  |     test.fail('Transfer Negative Amount',async({Accountservicepage,Openaccountpage,Fundtransferpage,Homepage,page})=>{
+  86  |         console.log(`Test: Transfer Negative Amount (expected to fail due to bug)`)
+  87  |         await page.goto(env.baseURL);
+  88  |         await Homepage.login_user('john','demo');
+  89  |         await Accountservicepage.openaccount.click();
+  90  |         await Openaccountpage.openaccount('1',expect);
+  91  |         await expect(Openaccountpage.newaccountnumber).toBeVisible();
+  92  |         const fromAccount = await Openaccountpage.newaccountnumber.textContent();
+  93  |         console.log(`FROM account: ${fromAccount}`);
+  94  |         await Accountservicepage.openaccount.click();
+  95  |         await Openaccountpage.accountType.selectOption('1');
+  96  |         await expect(Openaccountpage.fromAccount).not.toBeEmpty();
+  97  |         await Openaccountpage.openNewAccount.click();
+  98  |         await expect(Openaccountpage.newaccountnumber).toBeVisible();
+  99  |         const toAccount = await Openaccountpage.newaccountnumber.textContent();
+  100 |         console.log(`TO account: ${toAccount}`);
+  101 |         await Accountservicepage.transferfunds.click();
+  102 |         await expect(Fundtransferpage.fromAccount).toBeVisible();
+  103 |         console.log(`Attempting transfer of $-10`);
+  104 |         await Fundtransferpage.transfer_fund(fromAccount,toAccount,-10)
+  105 |         console.log(`Transfer message: "${await Fundtransferpage.transfersuccess_msg.textContent()}" (should NOT be "Transfer Complete!")`);
+  106 |         await Fundtransferpage.transfersuccess_msg.waitFor({state:'visible'})
+  107 |         await page.screenshot({ path: `./screenshots/transfer_negative_amount.png` });
+  108 |         await expect(Fundtransferpage.transfersuccess_msg).not.toHaveText('Transfer Complete!');
+  109 |     });
+  110 |     test.fail('Transfer to Same Account',async({Accountservicepage,Openaccountpage,Fundtransferpage,Homepage,page})=>{
+  111 |         console.log(`Test: Transfer to Same Account (expected to fail due to bug)`);
+  112 |         await page.goto(env.baseURL);
+  113 |         await Homepage.login_user('john','demo');
+  114 |         let accountbalance=100;
+  115 |         await Accountservicepage.openaccount.click();
+  116 |         await Openaccountpage.accountType.selectOption('1');
+  117 |         await expect(Openaccountpage.fromAccount).not.toBeEmpty();
+  118 |         await Openaccountpage.openNewAccount.click();
+  119 |         await expect(Openaccountpage.newaccountnumber).toBeVisible();
+  120 |         const fromAccount = await Openaccountpage.newaccountnumber.textContent();
+  121 |         const toAccount = fromAccount;
+  122 |         console.log(`FROM account = TO account = ${fromAccount} (same account transfer)`);
+  123 |         await Accountservicepage.transferfunds.click();
+  124 |         console.log(`Attempting $${accountbalance} transfer to same account.`);
+  125 |         await Fundtransferpage.transfer_fund(fromAccount,toAccount,accountbalance);
+  126 |         console.log(`Transfer message: "${await Fundtransferpage.transfersuccess_msg.textContent()}" (should NOT be "Transfer Complete!")`);
+  127 |         await Fundtransferpage.transfersuccess_msg.waitFor({state:'visible'})
+  128 |         await page.screenshot({ path: `./screenshots/transfer_same_account.png` });
+  129 |         await expect(await Fundtransferpage.transfersuccess_msg).not.toHaveText('Transfer Complete!');
+  130 |     });
+  131 | });
+```

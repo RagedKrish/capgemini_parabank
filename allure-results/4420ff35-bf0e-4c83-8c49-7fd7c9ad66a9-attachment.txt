@@ -1,0 +1,5 @@
+Test: Transfer Negative Amount (expected to fail due to bug)
+FROM account: 31548
+TO account: 31659
+Attempting transfer of $-10
+Transfer message: "Transfer Complete!" (should NOT be "Transfer Complete!")

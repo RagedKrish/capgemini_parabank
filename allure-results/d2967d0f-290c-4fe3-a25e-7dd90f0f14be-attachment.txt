@@ -1,0 +1,13 @@
+Test: Full User Lifecycle E2E
+Registering new user: "user1781353070637"
+Registration complete. Logging out.
+Logged out. Logging back in as "user1781353070637".
+Login successful.
+FROM Account created: 16452
+TO Account created: 16674
+[API] PRE-TRANSFER | FROM Account 16452 Balance: $100
+[API] PRE-TRANSFER | TO Account 16674 Balance: $100
+Performing UI transfer of $100 from 16452 -> 16674
+Transfer Complete! message confirmed.
+[API] POST-TRANSFER | FROM Account 16452 Balance: $0 (Expected: $0)
+[API] POST-TRANSFER | TO Account 16674 Balance: $200 (Expected: $200)

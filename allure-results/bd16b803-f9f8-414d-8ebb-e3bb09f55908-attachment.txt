@@ -1,0 +1,2 @@
+Test: Verify New Account Activity Page Opens Correctly
+Activity page for account 21225 verified correctly.

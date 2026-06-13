@@ -1,0 +1,21 @@
+Test: GET /customers/12212/accounts
+ Response Status: 200
+ Response Body: [{"id":13344,"customerId":12212,"type":"CHECKING","balance":3328.93},{"id":13899,"customerId":12212,"type":"SAVINGS","balance":441},{"id":15786,"customerId":12212,"type":"SAVINGS","balance":0},{"id":20004,"customerId":12212,"type":"SAVINGS","balance":0},{"id":20115,"customerId":12212,"type":"SAVINGS","balance":200},{"id":20226,"customerId":12212,"type":"SAVINGS","balance":0},{"id":20337,"customerId":12212,"type":"SAVINGS","balance":200},{"id":20448,"customerId":12212,"type":"SAVINGS","balance":0},{"id":20559,"customerId":12212,"type":"SAVINGS","balance":200},{"id":20670,"customerId":12212,"type":"CHECKING","balance":100},{"id":20892,"customerId":12212,"type":"CHECKING","balance":100},{"id":21225,"customerId":12212,"type":"LOAN","balance":1000},{"id":21891,"customerId":12212,"type":"SAVINGS","balance":100},{"id":22224,"customerId":12212,"type":"SAVINGS","balance":100},{"id":23445,"customerId":12212,"type":"SAVINGS","balance":100}]
+ Total accounts returned: 15
+[
+  { id: 13344, customerId: 12212, type: 'CHECKING', balance: 3328.93 },
+  { id: 13899, customerId: 12212, type: 'SAVINGS', balance: 441 },
+  { id: 15786, customerId: 12212, type: 'SAVINGS', balance: 0 },
+  { id: 20004, customerId: 12212, type: 'SAVINGS', balance: 0 },
+  { id: 20115, customerId: 12212, type: 'SAVINGS', balance: 200 },
+  { id: 20226, customerId: 12212, type: 'SAVINGS', balance: 0 },
+  { id: 20337, customerId: 12212, type: 'SAVINGS', balance: 200 },
+  { id: 20448, customerId: 12212, type: 'SAVINGS', balance: 0 },
+  { id: 20559, customerId: 12212, type: 'SAVINGS', balance: 200 },
+  { id: 20670, customerId: 12212, type: 'CHECKING', balance: 100 },
+  { id: 20892, customerId: 12212, type: 'CHECKING', balance: 100 },
+  { id: 21225, customerId: 12212, type: 'LOAN', balance: 1000 },
+  { id: 21891, customerId: 12212, type: 'SAVINGS', balance: 100 },
+  { id: 22224, customerId: 12212, type: 'SAVINGS', balance: 100 },
+  { id: 23445, customerId: 12212, type: 'SAVINGS', balance: 100 }
+]

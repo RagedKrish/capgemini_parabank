@@ -1,0 +1,9 @@
+Test: Transfer via UI and Validate Balances via API
+FROM Account created: 19005
+TO Account created: 19116
+[API] PRE-TRANSFER | FROM Account 19005 Balance: $100
+[API] PRE-TRANSFER | TO Account 19116 Balance: $100
+Performing UI transfer of $100 from 19005 -> 19116
+UI transfer successful — "Transfer Complete!" message visible.
+[API] POST-TRANSFER | FROM Account 19005 Balance: $0 (Expected: $0)
+[API] POST-TRANSFER | TO Account 19116 Balance: $200 (Expected: $200)

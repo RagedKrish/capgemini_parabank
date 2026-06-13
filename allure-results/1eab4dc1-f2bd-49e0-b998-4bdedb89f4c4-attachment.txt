@@ -1,0 +1,14 @@
+Test: Validating Total Balance Conservation
+Creating FROM account for customer 12212
+FROM Account Created: ID=20448
+Creating TO account for customer 12212
+TO Account Created: ID=20559
+PRE-TRANSFER | FROM Account 20448 Balance: $100
+PRE-TRANSFER | TO Account 20559 Balance: $100
+PRE-TRANSFER | Combined Total: $200
+Initiating transfer of $100 from 20448 -> 20559
+Transfer Response Status: 200
+POST-TRANSFER | FROM Account 20448 Balance: $0
+POST-TRANSFER | TO Account 20559 Balance: $200
+POST-TRANSFER | Combined Total: $200
+Pre-transfer total: $200 | Post-transfer total: $200

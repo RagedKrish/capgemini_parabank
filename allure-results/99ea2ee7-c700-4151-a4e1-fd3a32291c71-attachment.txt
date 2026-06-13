@@ -1,0 +1,2 @@
+Test: Testing invalid customer ID: 99999
+ Response Status: 400 (Expected: 400 Bad Request)

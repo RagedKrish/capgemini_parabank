@@ -1,0 +1,11 @@
+Test: Validating Destination Balance Credited
+Creating FROM account for customer 12212
+FROM Account Created: ID=20226
+Creating TO account for customer 12212
+TO Account Created: ID=20337
+PRE-TRANSFER | TO Account 20337 Balance: $100
+TO Account Pre-Transfer: {"id":20337,"customerId":12212,"type":"SAVINGS","balance":100}
+Initiating transfer of $100 from 20226 -> 20337
+Transfer Response Status: 200
+POST-TRANSFER | TO Account 20337 Balance: $200
+Expected: $200 | Actual: $200

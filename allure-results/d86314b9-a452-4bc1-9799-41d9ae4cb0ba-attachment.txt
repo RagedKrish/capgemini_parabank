@@ -1,0 +1,3 @@
+Test: Register with empty fields
+Clicking Register without filling any fields.
+All required field validation errors displayed correctly.

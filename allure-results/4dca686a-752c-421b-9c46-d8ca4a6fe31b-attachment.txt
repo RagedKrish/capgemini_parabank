@@ -1,0 +1,27 @@
+Test: New Account Appears in Overview
+Created account: 21114. Navigating to overview.
+23
+Checking account 12345 against new account 21114
+Checking account 12456 against new account 21114
+Checking account 12567 against new account 21114
+Checking account 12678 against new account 21114
+Checking account 12789 against new account 21114
+Checking account 12900 against new account 21114
+Checking account 13011 against new account 21114
+Checking account 13122 against new account 21114
+Checking account 13233 against new account 21114
+Checking account 13344 against new account 21114
+Checking account 15564 against new account 21114
+Checking account 15675 against new account 21114
+Checking account 15786 against new account 21114
+Checking account 15897 against new account 21114
+Checking account 16008 against new account 21114
+Checking account 16119 against new account 21114
+Checking account 16230 against new account 21114
+Checking account 20004 against new account 21114
+Checking account 20781 against new account 21114
+Checking account 20892 against new account 21114
+Checking account 21003 against new account 21114
+Checking account 21114 against new account 21114
+New account 21114 found in overview
+Account 21114 in overview found

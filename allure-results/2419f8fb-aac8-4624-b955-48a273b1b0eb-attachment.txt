@@ -1,0 +1,3 @@
+Test: Login with invalid username
+Attempting login with wrong username: "user1781334972423123"
+Error message shown
